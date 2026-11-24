@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Linden Health · Front desk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="12" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13 6v14M6 13h14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+      <span>Linden Health</span>
+    </div>
+    <button id="tryCall" class="btn-call" type="button">Try call</button>
+  </header>
+
+  <main class="grid">
+    <section class="doctors" aria-labelledby="h-doctors">
+      <div class="sec-head">
+        <h2 id="h-doctors">Doctors</h2>
+        <div id="dayTabs" class="tabs" role="tablist" aria-label="Day"></div>
+      </div>
+      <div id="doctorList"></div>
+    </section>
+
+    <aside class="side">
+      <section aria-labelledby="h-appts">
+        <div class="sec-head"><h2 id="h-appts">Appointments</h2></div>
+        <ol id="apptList" class="appts"></ol>
+      </section>
+      <section aria-labelledby="h-tr">
+        <div class="sec-head"><h2 id="h-tr">Transcript</h2></div>
+        <div id="transcript" class="tr" aria-live="polite"></div>
+      </section>
+    </aside>
+  </main>
+
+  <div id="phoneWrap" class="phone-wrap" hidden>
+    <div class="phone" role="dialog" aria-label="Call with Asha">
+      <div class="p-status"><span id="pState">Calling</span><span id="pTimer">00:00</span></div>
+      <div class="p-who">
+        <div class="avatar" aria-hidden="true">A</div>
+        <div class="p-name">Asha</div>
+        <div class="p-sub">Linden Health front desk</div>
+      </div>
+      <canvas id="wave" class="wave" aria-hidden="true"></canvas>
+      <div id="pTranscript" class="p-tr"></div>
+      <div id="pCard" class="p-card" hidden></div>
+      <div class="p-controls">
+        <button id="muteBtn" class="round ghost" type="button" aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/><path id="muteSlash" d="M4 4l16 16" style="display:none"/></svg>
+          <span>Mute</span>
+        </button>
+        <button id="endBtn" class="round end" type="button">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M12 9c-3.3 0-6.3 1-8.5 2.8-.6.5-.7 1.4-.2 2l1.3 1.5c.4.5 1.1.6 1.7.3l2.4-1.3c.4-.2.6-.6.6-1V11.8c1.1-.4 2.2-.6 2.7-.6s1.6.2 2.7.6v1.5c0 .4.2.8.6 1l2.4 1.3c.6.3 1.3.2 1.7-.3l1.3-1.5c.5-.6.4-1.5-.2-2C18.3 10 15.3 9 12 9z"/></svg>
+          <span>End</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <audio id="remoteAudio" autoplay></audio>
+  <script src="app.js"></script>
+</body>
+</html>
