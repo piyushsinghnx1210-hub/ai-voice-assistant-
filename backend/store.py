@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
 IST = ZoneInfo("Asia/Kolkata")
-WINDOW_DAYS = 5
+WINDOW_DAYS = 5 
 
 DOCTORS = [
     {"id": "d1", "name": "Dr. Ananya Sharma", "speciality": "Cardiology", "experience_years": 14,
